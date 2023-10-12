@@ -22,7 +22,7 @@ const resolvers = {
             return { token, user };
         },
 
-        loginUser: async (parent, args, context) => {
+        login: async (parent, args, context) => {
             const { email, password } = args;
             const user = await User.findOne({email})
             if (!user) {
@@ -36,11 +36,11 @@ const resolvers = {
             return { token, user };
         },
 
-        saveBook: async (parent, args, context) => {
+        saveBook: async (parent, { bookData }, context) => {
             if (context.user) {
                 return User.findOneAndUpdate(
                     {_id: context.user._id},
-                    { $addToSet: {savedBooks: {body}}},
+                    { $push: { savedBooks: bookData } },
                     { new: true, runValidators: true}
                 );
             } else {            
@@ -48,12 +48,11 @@ const resolvers = {
             }
         },
 
-        deleteBook: async (parent, args, context) => {
+        deleteBook: async (parent, { bookId }, context) => {
             if (context.user) {
-              // Your delete book logic here
               return User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $pull: { savedBooks: { bookId: params.bookId } } },
+                { $pull: { savedBooks: { bookId } } },
                 { new: true }
               );
             } else {
@@ -63,3 +62,5 @@ const resolvers = {
         
     }
 }
+
+module.exports = resolvers;
