@@ -52,5 +52,5 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 ## Deployed Application
 
-[Link to deployed application]( insert link here ).
+[Click here to view the deployed application](https://gentle-garden-59859-cd27ee0b306f.herokuapp.com/)
 
