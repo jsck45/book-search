@@ -2,7 +2,7 @@
 
 ## Description
 
-The aim of this project was to refactor a Google Books API search engine built with a RESTFul API to be a GraphQL API built with Apollo Server. The app was built using the MERN stack. 
+A full stack MERN book search engine which allows users to search for books, displaying an image, description, and Google Books link. Users can log in to save and delete books to their profile. It uses GraphQL with Apollo Server to interact with the Google Books API, replacing the previously used RESTful API for better efficiency and flexibility.
 
 ## User Story
 
